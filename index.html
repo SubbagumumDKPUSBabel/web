@@ -172,6 +172,25 @@
                         <button type="submit" class="btn btn-secondary"><i class="fas fa-plus"></i> Tambah</button>
                     </div>
                 </form>
+
+                <form id="cloudFileForm" class="data-form">
+                    <label class="data-label">Tambah File Cloud (OneDrive/Google Drive)</label>
+                    <div class="data-inputs">
+                        <input id="cloudFileName" type="text" placeholder="Nama file" required />
+                        <input id="cloudFileUrl" type="url" placeholder="Link OneDrive/Google Drive" required />
+                        <select id="cloudFileType" required>
+                            <option value="">Pilih jenis file</option>
+                            <option value="document">Dokumen</option>
+                            <option value="spreadsheet">Spreadsheet</option>
+                            <option value="presentation">Presentasi</option>
+                            <option value="pdf">PDF</option>
+                            <option value="image">Gambar</option>
+                            <option value="video">Video</option>
+                            <option value="other">Lainnya</option>
+                        </select>
+                        <button type="submit" class="btn btn-secondary"><i class="fas fa-cloud"></i> Tambah</button>
+                    </div>
+                </form>
             </div>
 
             <div class="data-list-wrapper">
@@ -183,6 +202,10 @@
                     <div class="data-block">
                         <h3>Daftar Tautan</h3>
                         <ul id="dataLinkList" class="data-list"></ul>
+                    </div>
+                    <div class="data-block">
+                        <h3>Daftar File Cloud</h3>
+                        <ul id="dataCloudFileList" class="data-list"></ul>
                     </div>
                 </div>
                 <p class="data-hint">Catatan: File yang diunggah disimpan sementara di memori browser (tidak ke server).</p>

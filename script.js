@@ -41,21 +41,58 @@ document.addEventListener('DOMContentLoaded', function() {
     const linkForm = document.getElementById('linkAddForm');
     const linkTitle = document.getElementById('linkTitle');
     const linkUrl = document.getElementById('linkUrl');
+    const cloudFileForm = document.getElementById('cloudFileForm');
+    const cloudFileName = document.getElementById('cloudFileName');
+    const cloudFileUrl = document.getElementById('cloudFileUrl');
+    const cloudFileType = document.getElementById('cloudFileType');
     const fileListEl = document.getElementById('dataFileList');
     const linkListEl = document.getElementById('dataLinkList');
+    const cloudFileListEl = document.getElementById('dataCloudFileList');
 
-    if (!fileListEl || !linkListEl) return;
+    if (!fileListEl || !linkListEl || !cloudFileListEl) return;
 
     const STORAGE_KEY = 'dkpus-data-items';
 
     function loadItems() {
         try {
             const raw = localStorage.getItem(STORAGE_KEY);
-            return raw ? JSON.parse(raw) : [];
-        } catch { return []; }
+            const savedItems = raw ? JSON.parse(raw) : [];
+            
+            // If no saved items, return sample cloud files for demonstration
+            if (savedItems.length === 0) {
+                return [
+                    {
+                        kind: 'cloud-file',
+                        name: 'Laporan Keuangan 2024',
+                        url: 'https://drive.google.com/file/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/view',
+                        fileType: 'spreadsheet',
+                        ts: Date.now() - 86400000
+                    },
+                    {
+                        kind: 'cloud-file',
+                        name: 'Proposal Pengembangan Perpustakaan',
+                        url: 'https://1drv.ms/w/s!Aq8vQwXqXqXqXqXqXqXqXqXqXqXqXq',
+                        fileType: 'document',
+                        ts: Date.now() - 172800000
+                    },
+                    {
+                        kind: 'cloud-file',
+                        name: 'Presentasi Rapat Koordinasi',
+                        url: 'https://docs.google.com/presentation/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit',
+                        fileType: 'presentation',
+                        ts: Date.now() - 259200000
+                    }
+                ];
+            }
+            
+            return savedItems;
+        } catch {
+            return [];
+        }
     }
 
     function saveItems(items) {
+        // Save items to localStorage for cloud files
         localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
     }
 
@@ -68,7 +105,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function iconFor(nameOrType) {
+    function iconFor(nameOrType, cloudType = null) {
+        if (cloudType) {
+            switch(cloudType) {
+                case 'document': return 'file-word';
+                case 'spreadsheet': return 'file-excel';
+                case 'presentation': return 'file-powerpoint';
+                case 'pdf': return 'file-pdf';
+                case 'image': return 'file-image';
+                case 'video': return 'file-video';
+                default: return 'file';
+            }
+        }
         const lower = (nameOrType || '').toLowerCase();
         if (lower.includes('xls')) return 'file-excel';
         if (lower.includes('doc')) return 'file-word';
@@ -80,8 +128,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const items = loadItems();
         const files = items.filter(i => i.kind === 'file');
         const links = items.filter(i => i.kind === 'link');
+        const cloudFiles = items.filter(i => i.kind === 'cloud-file');
 
-        function renderList(el, arr, emptyText) {
+        function renderList(el, arr, emptyText, isCloudFile = false) {
             el.innerHTML = '';
             if (!arr.length) {
                 const empty = document.createElement('li');
@@ -93,15 +142,28 @@ document.addEventListener('DOMContentLoaded', function() {
             arr.forEach((it, visibleIdx) => {
                 const li = document.createElement('li');
                 li.className = 'data-item';
-                const icon = iconFor(it.name || it.type);
-                const label = it.kind === 'file' ? it.name : (it.title || it.url);
+                const icon = isCloudFile ? iconFor(it.name, it.fileType) : iconFor(it.name || it.type);
+                const label = it.kind === 'file' ? it.name : (it.kind === 'cloud-file' ? it.name : (it.title || it.url));
+                
+                let actions = '';
+                if (it.kind === 'file') {
+                    actions = `<a href="${it.data}" target="_blank" rel="noopener"><i class="fas fa-eye"></i> Lihat</a>
+                              <a href="${it.data}" download="${it.name}"><i class="fas fa-download"></i> Download</a>`;
+                } else if (it.kind === 'cloud-file') {
+                    actions = `<a href="${it.url}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Buka</a>
+                              <a href="${it.url}" target="_blank" rel="noopener"><i class="fas fa-download"></i> Download</a>`;
+                } else {
+                    actions = `<a href="${it.url}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Buka</a>`;
+                }
+                
                 li.innerHTML = `
-                    <div class="meta"><i class="fas fa-${icon}"></i><span>${label}</span></div>
+                    <div class="meta">
+                        <i class="fas fa-${icon}"></i>
+                        <span>${label}</span>
+                        ${isCloudFile ? `<small class="file-type">${it.fileType}</small>` : ''}
+                    </div>
                     <div class="actions">
-                        ${it.kind === 'file' 
-                            ? `<a href="${it.data}" target="_blank" rel="noopener"><i class="fas fa-eye"></i> Lihat</a>
-                               <a href="${it.data}" download="${it.name}"><i class="fas fa-download"></i> Download</a>` 
-                            : `<a href="${it.url}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Buka</a>`}
+                        ${actions}
                     </div>
                     <div class="actions"><button data-ts="${it.ts}" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button></div>
                 `;
@@ -124,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         renderList(fileListEl, files, 'Belum ada file');
         renderList(linkListEl, links, 'Belum ada tautan');
+        renderList(cloudFileListEl, cloudFiles, 'Belum ada file cloud', true);
     }
 
     if (fileForm && fileInput) {
@@ -159,6 +222,51 @@ document.addEventListener('DOMContentLoaded', function() {
             linkTitle.value = '';
             linkUrl.value = '';
             showNotification('Tautan ditambahkan.', 'success');
+            render();
+        });
+    }
+
+    if (cloudFileForm && cloudFileName && cloudFileUrl && cloudFileType) {
+        cloudFileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = cloudFileName.value.trim();
+            const url = cloudFileUrl.value.trim();
+            const fileType = cloudFileType.value;
+            
+            if (!name || !url || !fileType) {
+                showNotification('Semua field harus diisi.', 'error');
+                return;
+            }
+            
+            try { 
+                new URL(url); 
+            } catch { 
+                showNotification('URL tidak valid.', 'error'); 
+                return; 
+            }
+            
+            // Validasi URL OneDrive atau Google Drive
+            const isOneDrive = url.includes('onedrive.live.com') || url.includes('1drv.ms');
+            const isGoogleDrive = url.includes('drive.google.com') || url.includes('docs.google.com');
+            
+            if (!isOneDrive && !isGoogleDrive) {
+                showNotification('URL harus dari OneDrive atau Google Drive.', 'error');
+                return;
+            }
+            
+            const items = loadItems();
+            items.unshift({ 
+                kind: 'cloud-file', 
+                name, 
+                url, 
+                fileType, 
+                ts: Date.now() 
+            });
+            saveItems(items);
+            cloudFileName.value = '';
+            cloudFileUrl.value = '';
+            cloudFileType.value = '';
+            showNotification('File cloud berhasil ditambahkan.', 'success');
             render();
         });
     }
