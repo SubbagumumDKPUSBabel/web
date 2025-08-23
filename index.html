@@ -35,9 +35,10 @@
             <nav class="navigation">
                 <ul id="primary-navigation" class="nav-menu">
                     <li><a href="#beranda">BERANDA</a></li>
-                    <li><a href="profil.html">PROFIL</a></li>
-                    <li><a href="#data">DATA</a></li>
-                    <li><a href="#galeri">GALERI</a></li>
+                                            <li><a href="profil.html">PROFIL</a></li>
+                        <li><a href="#layanan">LAYANAN</a></li>
+                        <li><a href="#data">DATA</a></li>
+                        <li><a href="#galeri">GALERI</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">LAPOR BOS</a>
                         <i class="fas fa-chevron-down dropdown-arrow"></i>
@@ -92,6 +93,113 @@
         </div>
     </main>
 
+    <!-- Layanan Section -->
+    <section id="layanan" class="layanan-section">
+        <div class="layanan-container">
+            <div class="layanan-header">
+                <h2>Layanan</h2>
+                <p>Berbagai layanan yang kami sediakan untuk masyarakat.</p>
+            </div>
+
+            <div class="layanan-grid">
+                <div class="layanan-card">
+                    <div class="layanan-icon">
+                        <i class="fas fa-archive"></i>
+                    </div>
+                    <h3>Layanan Arsip Surat Menyurat</h3>
+                    <p>Penyimpanan, pengelolaan, dan pelestarian dokumen arsip penting pemerintah dan masyarakat.</p>
+                    <a href="#" class="layanan-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="layanan-card">
+                    <div class="layanan-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Layanan Cuti Pegawai ASN</h3>
+                    <p>Pelayan administrasi pengajuan cuti Pegawai ASN dengan prosedur yang mudah dan cepat.</p>
+                    <a href="#" class="layanan-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="layanan-card">
+                    <div class="layanan-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Pencarian Arsip</h3>
+                    <p>Bantuan pencarian dan akses ke dokumen arsip sesuai kebutuhan pengguna.</p>
+                    <a href="#" class="layanan-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="layanan-card">
+                    <div class="layanan-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Konsultasi Kepegawaian</h3>
+                    <p>Layanan konsultasi kepegawaian untuk membantu ASN dalam berbagai hal administrasi.</p>
+                    <a href="#" class="layanan-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="layanan-card">
+                    <div class="layanan-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Pelatihan</h3>
+                    <p>Program pelatihan dan workshop untuk meningkatkan kompetensi di bidang kearsipan dan perpustakaan.</p>
+                    <a href="#" class="layanan-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="layanan-card">
+                    <div class="layanan-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Arsip Digital</h3>
+                    <p>Akses ke arsip digital dan layanan online untuk kemudahan masyarakat.</p>
+                    <a href="#" class="layanan-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Section -->
+    <section id="data" class="data-section">
+        <div class="data-container">
+            <div class="data-header">
+                <h2>Data</h2>
+                <p>Kelola dan akses data dari OneDrive atau Google Drive.</p>
+            </div>
+
+            <div class="data-actions">
+                <form id="cloudFileForm" class="data-form">
+                    <label class="data-label">Tambah File dari Cloud Storage</label>
+                    <div class="data-inputs">
+                        <input id="cloudFileName" type="text" placeholder="Nama file" required />
+                        <input id="cloudFileUrl" type="url" placeholder="URL OneDrive/Google Drive" required />
+                        <select id="cloudFileType" required>
+                            <option value="">Pilih jenis file</option>
+                            <option value="document">Dokumen</option>
+                            <option value="spreadsheet">Spreadsheet</option>
+                            <option value="presentation">Presentasi</option>
+                            <option value="pdf">PDF</option>
+                            <option value="image">Gambar</option>
+                            <option value="video">Video</option>
+                            <option value="other">Lainnya</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-cloud-upload-alt"></i> Tambah File</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="data-list-wrapper">
+                <div class="data-lists">
+                    <div class="data-block">
+                        <h3>Daftar File Cloud</h3>
+                        <ul id="dataCloudFileList" class="data-list"></ul>
+                    </div>
+                </div>
+                <p class="data-hint">Catatan: File disimpan di browser lokal. Pastikan URL OneDrive/Google Drive dapat diakses publik.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Galeri Section -->
     <section id="galeri" class="gallery-section">
         <div class="gallery-container">
@@ -145,50 +253,9 @@
                 </div>
             </div>
         </div>
-    </section>
+                </section>
 
-    <!-- Data Section -->
-    <section id="data" class="data-section">
-        <div class="data-container">
-            <div class="data-header">
-                <h2>Data</h2>
-                <p>Kelola dan akses data dari OneDrive atau Google Drive.</p>
-            </div>
-
-            <div class="data-actions">
-                <form id="cloudFileForm" class="data-form">
-                    <label class="data-label">Tambah File dari Cloud Storage</label>
-                    <div class="data-inputs">
-                        <input id="cloudFileName" type="text" placeholder="Nama file" required />
-                        <input id="cloudFileUrl" type="url" placeholder="URL OneDrive/Google Drive" required />
-                        <select id="cloudFileType" required>
-                            <option value="">Pilih jenis file</option>
-                            <option value="document">Dokumen</option>
-                            <option value="spreadsheet">Spreadsheet</option>
-                            <option value="presentation">Presentasi</option>
-                            <option value="pdf">PDF</option>
-                            <option value="image">Gambar</option>
-                            <option value="video">Video</option>
-                            <option value="other">Lainnya</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-cloud-upload-alt"></i> Tambah File</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="data-list-wrapper">
-                <div class="data-lists">
-                    <div class="data-block">
-                        <h3>Daftar File Cloud</h3>
-                        <ul id="dataCloudFileList" class="data-list"></ul>
-                    </div>
-                </div>
-                <p class="data-hint">Catatan: File disimpan di browser lokal. Pastikan URL OneDrive/Google Drive dapat diakses publik.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Real-time Information Modal -->
+            <!-- Real-time Information Modal -->
     <div id="info-terkini" class="modal">
         <div class="modal-content">
             <div class="modal-header">
