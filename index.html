@@ -36,7 +36,6 @@
                 <ul id="primary-navigation" class="nav-menu">
                     <li><a href="#beranda">BERANDA</a></li>
                     <li><a href="profil.html">PROFIL</a></li>
-                    <li><a href="#data">DATA</a></li>
                     <li><a href="#galeri">GALERI</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">LAPOR BOS</a>
@@ -147,71 +146,7 @@
         </div>
     </section>
 
-    <!-- Data Section -->
-    <section id="data" class="data-section">
-        <div class="data-container">
-            <div class="data-header">
-                <h2>Data</h2>
-                <p>Unggah dan kelola data (Excel, Word, PDF) atau tautan eksternal.</p>
-            </div>
 
-            <div class="data-actions">
-                <form id="fileUploadForm" class="data-form" enctype="multipart/form-data">
-                    <label class="data-label">Upload File (xlsx, docx, pdf)</label>
-                    <div class="data-inputs">
-                        <input id="fileInput" type="file" accept=".xlsx,.xls,.doc,.docx,.pdf" />
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-upload"></i> Upload</button>
-                    </div>
-                </form>
-
-                <form id="linkAddForm" class="data-form">
-                    <label class="data-label">Tambah Tautan</label>
-                    <div class="data-inputs">
-                        <input id="linkTitle" type="text" placeholder="Judul tautan" />
-                        <input id="linkUrl" type="url" placeholder="https://example.com" />
-                        <button type="submit" class="btn btn-secondary"><i class="fas fa-plus"></i> Tambah</button>
-                    </div>
-                </form>
-
-                <form id="cloudFileForm" class="data-form">
-                    <label class="data-label">Tambah File Cloud (OneDrive/Google Drive)</label>
-                    <div class="data-inputs">
-                        <input id="cloudFileName" type="text" placeholder="Nama file" required />
-                        <input id="cloudFileUrl" type="url" placeholder="Link OneDrive/Google Drive" required />
-                        <select id="cloudFileType" required>
-                            <option value="">Pilih jenis file</option>
-                            <option value="document">Dokumen</option>
-                            <option value="spreadsheet">Spreadsheet</option>
-                            <option value="presentation">Presentasi</option>
-                            <option value="pdf">PDF</option>
-                            <option value="image">Gambar</option>
-                            <option value="video">Video</option>
-                            <option value="other">Lainnya</option>
-                        </select>
-                        <button type="submit" class="btn btn-secondary"><i class="fas fa-cloud"></i> Tambah</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="data-list-wrapper">
-                <div class="data-lists">
-                    <div class="data-block">
-                        <h3>Daftar File</h3>
-                        <ul id="dataFileList" class="data-list"></ul>
-                    </div>
-                    <div class="data-block">
-                        <h3>Daftar Tautan</h3>
-                        <ul id="dataLinkList" class="data-list"></ul>
-                    </div>
-                    <div class="data-block">
-                        <h3>Daftar File Cloud</h3>
-                        <ul id="dataCloudFileList" class="data-list"></ul>
-                    </div>
-                </div>
-                <p class="data-hint">Catatan: File yang diunggah disimpan sementara di memori browser (tidak ke server).</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Real-time Information Modal -->
     <div id="info-terkini" class="modal">
