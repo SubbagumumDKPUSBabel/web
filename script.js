@@ -34,6 +34,168 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Data section logic (client-side, in-memory)
+document.addEventListener('DOMContentLoaded', function() {
+    const cloudFileForm = document.getElementById('cloudFileForm');
+    const cloudFileName = document.getElementById('cloudFileName');
+    const cloudFileUrl = document.getElementById('cloudFileUrl');
+    const cloudFileType = document.getElementById('cloudFileType');
+    const cloudFileListEl = document.getElementById('dataCloudFileList');
+
+    if (!cloudFileListEl) return;
+
+    const STORAGE_KEY = 'cloud_files';
+
+    function loadItems() {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw) {
+                return JSON.parse(raw);
+            } else {
+                // Return sample data if no data exists
+                return [
+                    {
+                        kind: 'cloud-file',
+                        name: 'Laporan Keuangan 2024',
+                        url: 'https://drive.google.com/file/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/view',
+                        fileType: 'spreadsheet',
+                        ts: Date.now() - 86400000
+                    },
+                    {
+                        kind: 'cloud-file',
+                        name: 'Proposal Pengembangan Perpustakaan',
+                        url: 'https://1drv.ms/w/s!Aq8vQwXqXqXqXqXqXqXqXqXqXqXqXq',
+                        fileType: 'document',
+                        ts: Date.now() - 172800000
+                    },
+                    {
+                        kind: 'cloud-file',
+                        name: 'Presentasi Rapat Koordinasi',
+                        url: 'https://docs.google.com/presentation/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit',
+                        fileType: 'presentation',
+                        ts: Date.now() - 259200000
+                    }
+                ];
+            }
+        } catch { return []; }
+    }
+
+    function saveItems(items) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
+
+    function iconFor(nameOrType, cloudType = null) {
+        if (cloudType) {
+            switch(cloudType) {
+                case 'document': return 'file-word';
+                case 'spreadsheet': return 'file-excel';
+                case 'presentation': return 'file-powerpoint';
+                case 'pdf': return 'file-pdf';
+                case 'image': return 'file-image';
+                case 'video': return 'file-video';
+                default: return 'file';
+            }
+        }
+        const lower = (nameOrType || '').toLowerCase();
+        if (lower.includes('xls')) return 'file-excel';
+        if (lower.includes('doc')) return 'file-word';
+        if (lower.includes('pdf')) return 'file-pdf';
+        return 'file';
+    }
+
+    function render() {
+        const items = loadItems();
+        const cloudFiles = items.filter(i => i.kind === 'cloud-file');
+
+        function renderList(el, arr, emptyText) {
+            el.innerHTML = '';
+            if (!arr.length) {
+                const empty = document.createElement('li');
+                empty.className = 'data-item';
+                empty.innerHTML = `<div class="meta"><i class="fas fa-info-circle"></i><span>${emptyText}</span></div>`;
+                el.appendChild(empty);
+                return;
+            }
+            arr.forEach((it, visibleIdx) => {
+                const li = document.createElement('li');
+                li.className = 'data-item';
+                const icon = iconFor(it.name, it.fileType);
+                const label = it.name;
+                const fileTypeLabel = it.fileType || 'other';
+                li.innerHTML = `
+                    <div class="meta">
+                        <i class="fas fa-${icon}"></i>
+                        <span>${label}</span>
+                        <span class="file-type">${fileTypeLabel}</span>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-open" onclick="window.open('${it.url}', '_blank')">
+                            <i class="fas fa-external-link-alt"></i> Buka
+                        </button>
+                        <button class="btn-delete" onclick="deleteItem(${visibleIdx})">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                `;
+                el.appendChild(li);
+            });
+        }
+
+        renderList(cloudFileListEl, cloudFiles, 'Belum ada file cloud');
+    }
+
+    // Add cloud file
+    if (cloudFileForm && cloudFileName && cloudFileUrl && cloudFileType) {
+        cloudFileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = cloudFileName.value.trim();
+            const url = cloudFileUrl.value.trim();
+            const fileType = cloudFileType.value;
+            
+            if (!name || !url || !fileType) return;
+            
+            // Validate URL (OneDrive or Google Drive)
+            if (!url.includes('onedrive.com') && !url.includes('drive.google.com') && !url.includes('1drv.ms')) {
+                showNotification('URL harus dari OneDrive atau Google Drive.', 'error');
+                return;
+            }
+            
+            const items = loadItems();
+            items.unshift({ 
+                kind: 'cloud-file', 
+                name, 
+                url, 
+                fileType, 
+                ts: Date.now() 
+            });
+            saveItems(items);
+            cloudFileName.value = '';
+            cloudFileUrl.value = '';
+            cloudFileType.value = '';
+            showNotification('File cloud ditambahkan.', 'success');
+            render();
+        });
+    }
+
+    // Delete item function (global scope)
+    window.deleteItem = function(index) {
+        const items = loadItems();
+        const cloudFiles = items.filter(i => i.kind === 'cloud-file');
+        if (index >= 0 && index < cloudFiles.length) {
+            const itemToDelete = cloudFiles[index];
+            const itemIndex = items.findIndex(i => i.ts === itemToDelete.ts);
+            if (itemIndex !== -1) {
+                items.splice(itemIndex, 1);
+                saveItems(items);
+                showNotification('File dihapus.', 'success');
+                render();
+            }
+        }
+    };
+
+    render();
+});
+
 
 
 // Dark mode toggle with persistence
