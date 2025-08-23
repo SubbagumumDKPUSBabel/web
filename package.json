@@ -1,0 +1,63 @@
+{
+  "name": "website-subbagian-umum-dinas-arsip-babel",
+  "version": "1.0.0",
+  "description": "Website resmi Subbagian Umum Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'Website sudah siap digunakan. Buka index.html di browser.'",
+    "test": "echo 'Website dapat diuji dengan membuka file HTML di browser.'"
+  },
+  "keywords": [
+    "website",
+    "dinas-arsip",
+    "bangka-belitung",
+    "perpustakaan",
+    "arsip",
+    "pemerintah",
+    "provinsi"
+  ],
+  "author": "Subbagian Umum Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/website-dinas-arsip-babel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/website-dinas-arsip-babel/issues"
+  },
+  "homepage": "https://arsip.babelprov.go.id",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "features": [
+    "Responsive Design",
+    "Modern UI/UX",
+    "Real-time Information",
+    "Interactive Elements",
+    "Accessibility",
+    "SEO Optimized",
+    "Cross-browser Compatible"
+  ],
+  "technologies": [
+    "HTML5",
+    "CSS3",
+    "JavaScript ES6+",
+    "Font Awesome",
+    "Google Fonts",
+    "CSS Grid",
+    "Flexbox",
+    "CSS Animations"
+  ]
+}
+

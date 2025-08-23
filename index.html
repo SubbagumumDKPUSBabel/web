@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subbagian Umum - Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="logo-babel.png" alt="Pemprov. Kep. Babel" loading="lazy">
+                </div>
+                <div class="agency-info">
+                    <h1 class="agency-name">SUBBAGIAN UMUM</h1>
+                    <h2 class="province-name">SEKRETARIAT</h2>
+                    <h3 class="province-name">DINAS KEARSIPAN DAN PERPUSTAKAAN</h3>
+                    <p class="subbagian">PROVINSI KEPULAUAN BANGKA BELITUNG
+                </div>
+            </div>
+
+            <div class="mobile-buttons">
+                <button class="theme-toggle" aria-label="Ganti tema" aria-pressed="false"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" aria-label="Buka menu" aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <nav class="navigation">
+                <ul id="primary-navigation" class="nav-menu">
+                    <li><a href="#beranda">BERANDA</a></li>
+                    <li><a href="profil.html">PROFIL</a></li>
+                    <li><a href="#data">DATA</a></li>
+                    <li><a href="#galeri">GALERI</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">LAPOR BOS</a>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://subbagumumdkpusbabel.github.io/laporbos/" target="_blank" rel="noopener">Form Ketidakhadiran di Kantor <i class="fas fa-external-link-alt"></i></a></li>
+                            <li><a href="#pengaduan">Lapor Bos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <!-- Left Section - Illustration -->
+            <div class="illustration-section">
+                <div class="moon-background">
+                    <div class="cultural-figure">
+                        <div class="figure-crown"></div>
+                        <div class="figure-face"></div>
+                        <div class="figure-body"></div>
+                        <div class="figure-arms"></div>
+                        <div class="figure-bow"></div>
+                        <div class="figure-quiver"></div>
+                    </div>
+                </div>
+                <div class="wave-decoration"></div>
+            </div>
+
+            <!-- Right Section - Content -->
+            <div class="content-section">
+                <div class="main-heading">
+                    <h1>Melayani dengan hati</h1>
+                    <h2>untuk mendukung literasi yg mengakar, arsip tertib dan informatif</h2>                    
+                </div>
+                <div class="sub-text">
+                    <p>Subbagian Umum Sekretariat Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung</p>
+                </div>
+                <div class="action-buttons">
+                    <a href="#info-terkini" class="btn btn-primary">
+                        <i class="fas fa-info-circle"></i>
+                        Info Terkini
+                    </a>
+                    <a href="#filosofi" class="btn btn-secondary">
+                        <i class="fas fa-lightbulb"></i>
+                        Filosofi Maskot
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="gallery-section">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h2>Galeri</h2>
+                <p>Dokumentasi kegiatan Subbagian Umum.</p>
+            </div>
+
+            <div class="gallery-tabs">
+                <button class="gallery-tab active" data-tab="foto"><i class="fas fa-image"></i> Foto</button>
+                <button class="gallery-tab" data-tab="video"><i class="fas fa-video"></i> Video</button>
+            </div>
+
+            <div class="gallery-content">
+                <div class="gallery-panel active" id="tab-foto">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/arsip1/600/400" alt="Kegiatan 1" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/arsip2/600/400" alt="Kegiatan 2" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/arsip3/600/400" alt="Kegiatan 3" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/arsip4/600/400" alt="Kegiatan 4" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/arsip5/600/400" alt="Kegiatan 5" loading="lazy">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/seed/arsip6/600/400" alt="Kegiatan 6" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-panel" id="tab-video">
+                    <div class="gallery-grid gallery-grid-video">
+                        <div class="gallery-item">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/NCB-Ye4RI4I" title="Diskusi Online Preservasi Arsip" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/9onW0aixrs0" title="BUJANG KATAK - SELASIH Kab. Bangka Tengah 2" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Section -->
+    <section id="data" class="data-section">
+        <div class="data-container">
+            <div class="data-header">
+                <h2>Data</h2>
+                <p>Unggah dan kelola data (Excel, Word, PDF) atau tautan eksternal.</p>
+            </div>
+
+            <div class="data-actions">
+                <form id="fileUploadForm" class="data-form" enctype="multipart/form-data">
+                    <label class="data-label">Upload File (xlsx, docx, pdf)</label>
+                    <div class="data-inputs">
+                        <input id="fileInput" type="file" accept=".xlsx,.xls,.doc,.docx,.pdf" />
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-upload"></i> Upload</button>
+                    </div>
+                </form>
+
+                <form id="linkAddForm" class="data-form">
+                    <label class="data-label">Tambah Tautan</label>
+                    <div class="data-inputs">
+                        <input id="linkTitle" type="text" placeholder="Judul tautan" />
+                        <input id="linkUrl" type="url" placeholder="https://example.com" />
+                        <button type="submit" class="btn btn-secondary"><i class="fas fa-plus"></i> Tambah</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="data-list-wrapper">
+                <div class="data-lists">
+                    <div class="data-block">
+                        <h3>Daftar File</h3>
+                        <ul id="dataFileList" class="data-list"></ul>
+                    </div>
+                    <div class="data-block">
+                        <h3>Daftar Tautan</h3>
+                        <ul id="dataLinkList" class="data-list"></ul>
+                    </div>
+                </div>
+                <p class="data-hint">Catatan: File yang diunggah disimpan sementara di memori browser (tidak ke server).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-time Information Modal -->
+    <div id="info-terkini" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Informasi Terkini</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Jadwal Layanan</h3>
+                            <p>Senin - Kamis: 07:30 - 16:00 WIB</p>
+                            <p>Jum'at: 07:30 - 16:30 WIB</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Koleksi Terbaru</h3>
+                            <p>500+ buku baru tersedia</p>
+                            <p>Update: 2 jam yang lalu</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Pengunjung Hari Ini</h3>
+                            <p>Total: 127 pengunjung</p>
+                            <p>Online: 23 pengunjung</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Lapor Bos Section -->
+    <section id="pengaduan" class="pengaduan-section">
+        <div class="pengaduan-container">
+            <div class="pengaduan-header">
+                <h2>Lapor Bos</h2>
+                <p>Laporkan keluhan, saran, atau masukan untuk peningkatan layanan kami.</p>
+            </div>
+            <div class="pengaduan-form">
+                <form id="pengaduanForm">
+                    <div class="form-group">
+                        <label for="namaPengaduan">Nama Lengkap *</label>
+                        <input type="text" id="namaPengaduan" name="namaPengaduan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailPengaduan">Email *</label>
+                        <input type="email" id="emailPengaduan" name="emailPengaduan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="teleponPengaduan">Nomor Telepon</label>
+                        <input type="tel" id="teleponPengaduan" name="teleponPengaduan">
+                    </div>
+                    <div class="form-group">
+                        <label for="jenisPengaduan">Jenis Laporan *</label>
+                        <select id="jenisPengaduan" name="jenisPengaduan" required>
+                            <option value="">Pilih jenis laporan</option>
+                            <option value="keluhan">Keluhan</option>
+                            <option value="saran">Saran</option>
+                            <option value="masukan">Masukan</option>
+                            <option value="pengaduan">Pengaduan</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="uraianPengaduan">Uraian Laporan *</label>
+                        <textarea id="uraianPengaduan" name="uraianPengaduan" rows="5" required placeholder="Jelaskan detail laporan Anda..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="buktiPengaduan">Bukti Pendukung (Opsional)</label>
+                        <input type="file" id="buktiPengaduan" name="buktiPengaduan" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="anonim" name="anonim">
+                            <span class="checkmark"></span>
+                            Laporkan secara anonim
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">
+                        <i class="fas fa-paper-plane"></i>
+                        Kirim Laporan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Jenderal Sudirman No. 3, Pangkalpinang</p>
+                    <p><i class="fas fa-phone"></i> (0717) 43534</p>
+                    <p><i class="fas fa-envelope"></i> info@arsip.babelprov.go.id</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#arsip">Layanan Arsip</a></li>
+                        <li><a href="#perpustakaan">Layanan Perpustakaan</a></li>
+                        <li><a href="#digital">Arsip Digital</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Media Sosial</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/6282179804458" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://dkpus.babelprov.go.id/" target="_blank" rel="noopener"><i class="fas fa-globe"></i></a>                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Izin Tidak Hadir Button -->
+    <div class="floating-izin">
+        <a href="https://subbagumumdkpusbabel.github.io/laporbos/" target="_blank" rel="noopener" title="Isi Form Ketidakhadiran di Kantor">
+            <i class="fas fa-calendar-times"></i>
+            <span class="floating-text">Isi Form Ketidakhadiran di Kantor</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

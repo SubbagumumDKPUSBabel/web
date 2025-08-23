@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Subbagian Umum Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .profile-hero {
+            background: linear-gradient(135deg, #2c5530 0%, #4a6741 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .profile-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .profile-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .profile-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .profile-section {
+            margin-bottom: 4rem;
+        }
+        
+        .profile-section h2 {
+            font-size: 2.5rem;
+            color: #2c5530;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ffd700, #ffa500);
+            border-radius: 2px;
+        }
+        
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .vision-card, .mission-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .vision-card:hover, .mission-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .vision-card h3, .mission-card h3 {
+            font-size: 1.8rem;
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+        
+        .vision-card p, .mission-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid #2c5530;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h4 {
+            font-size: 1.3rem;
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #f5f5dc, #f0f8ff);
+            padding: 4rem 2rem;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c5530;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #2c5530, #4a6741);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(44, 85, 48, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .profile-section h2 {
+                font-size: 2rem;
+            }
+            
+            .vision-mission {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="logo-babel.png" alt="Logo Pemerintah Provinsi Kepulauan Bangka Belitung" loading="lazy">
+                </div>
+                <div class="agency-info">
+                    <h1 class="agency-name">SUBBAGIAN UMUM</h1>
+                    <h2 class="province-name">DINAS KEARSIPAN DAN PERPUSTAKAAN</h2>
+                    <p class="subbagian">PROVINSI KEPULAUAN BANGKA BELITUNG</p>
+                </div>
+            </div>
+            <div class="mobile-buttons">
+                <button class="theme-toggle" aria-label="Ganti tema" aria-pressed="false"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle" aria-label="Buka menu" aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <nav class="navigation">
+                <ul id="primary-navigation" class="nav-menu">
+                    <li><a href="index.html">BERANDA</a></li>
+                    <li><a href="profil.html" class="active">PROFIL</a></li>
+                    <li><a href="index.html#data">DATA</a></li>
+                    <li><a href="index.html#galeri">GALERI</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">LAPOR BOS</a>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://subbagumumdkpusbabel.github.io/laporbos/" target="_blank" rel="noopener">Form Ketidakhadiran di Kantor <i class="fas fa-external-link-alt"></i></a></li>
+                            <li><a href="index.html#pengaduan">Lapor Bos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Profile Hero Section -->
+    <section class="profile-hero">
+        <h1>PROFIL</h1>
+        <p>Mengenal lebih dekat Subbagian Umum Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung dalam melayani masyarakat dan melestarikan warisan budaya bangsa.</p>
+    </section>
+
+    <!-- Profile Content -->
+    <main class="profile-content">
+        <!-- Vision & Mission -->
+        <section class="profile-section">
+            <h2>VISI & MISI</h2>
+            <div class="vision-mission">
+                <div class="vision-card">
+                    <i class="fas fa-eye service-icon"></i>
+                    <h3>VISI</h3>
+                    <p>"Terwujudnya Provinsi Kepulauan Bangka Belitung yang maju, mandiri, dan sejahtera melalui pengelolaan arsip yang profesional dan layanan perpustakaan yang berkualitas untuk mendukung pembangunan daerah."</p>
+                </div>
+                <div class="mission-card">
+                    <i class="fas fa-bullseye service-icon"></i>
+                    <h3>MISI</h3>
+                    <p>1. Membantu dalam meningkatkan kualitas pengelolaan arsip dan dokumentasi<br>
+                    2. Membantu dalam mengembangkan layanan perpustakaan yang modern dan inovatif<br>
+                    3. Membantu dalam meningkatkan kompetensi SDM di bidang kearsipan dan perpustakaan<br>
+                    4. Membantu dalam mendorong literasi masyarakat melalui program perpustakaan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="profile-section">
+            <h2>LAYANAN UTAMA</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-archive service-icon"></i>
+                    <h4>Layanan Arsip Surat Menyurat</h4>
+                    <p>Penyimpanan, pengelolaan, dan pelestarian dokumen arsip penting pemerintah dan masyarakat.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-book service-icon"></i>
+                    <h4>Layanan Cuti Pegawai ASN</h4>
+                    <p>Pelayan administrasi pengajuan cuti Pegawai ASN.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search service-icon"></i>
+                    <h4>Pencarian Arsip</h4>
+                    <p>Bantuan pencarian dan akses ke dokumen arsip sesuai kebutuhan pengguna.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users service-icon"></i>
+                    <h4>Konsultasi Kepegawaian</h4>
+                    <p>Layanan konsultasi kepegawaian.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap service-icon"></i>
+                    <h4>Pelatihan</h4>
+                    <p>Program pelatihan dan workshop untuk meningkatkan kompetensi di bidang kearsipan dan perpustakaan.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe service-icon"></i>
+                    <h4>Arsip Digital</h4>
+                    <p>Akses ke arsip digital dan layanan online untuk kemudahan masyarakat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats-section">
+            <h2 style="color: #2c5530; text-align: center; margin-bottom: 3rem;">CAPAIAN KINERJA</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50,000+</div>
+                    <div class="stat-label">Dokumen Arsip</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25,000+</div>
+                    <div class="stat-label">Koleksi Buku</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15,000+</div>
+                    <div class="stat-label">Pengunjung/Tahun</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Kepuasan Layanan</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organization Structure -->
+        <section class="profile-section">
+            <h2>STRUKTUR ORGANISASI</h2>
+            <div class="org-chart">
+                <ul>
+                    <li>
+                                                 <div class="org-card">
+                             <img src="https://drive.google.com/thumbnail?id=1CXpSo-J6m1AMsabilmYkH9Ik6K5X6WSO&sz=w400" alt="Plt. Kepala Dinas" class="org-avatar" onerror="this.src='https://picsum.photos/seed/kepala/200/200'">
+                             <div class="org-role">Plt. Kepala Dinas</div>
+                             <div class="org-name">Doni Golput, S.E.</div>
+                         </div>
+                                                 <ul>
+                             <li>
+                                 <div class="org-card">
+                                     <img src="https://picsum.photos/seed/sekretaris/200/200" alt="Sekretaris" class="org-avatar" loading="lazy">
+                                     <div class="org-role">Sekretaris</div>
+                                     <div class="org-name">Doni Golput</div>
+                                 </div>
+                                 <ul>
+                                     <li>
+                                         <div class="org-card sub-org-card">
+                                             <img src="https://picsum.photos/seed/subbagumum/200/200" alt="Subbagian Umum" class="org-avatar" loading="lazy">
+                                             <div class="org-role">Subbagian Umum</div>
+                                             <div class="org-name">Kepala: Ian Gaurav Bhaskara, S.I.Pem.</div>
+                                         </div>
+                                     </li>
+                                 </ul>
+                             </li>
+                             <li>
+                                 <div class="org-card">
+                                     <img src="https://picsum.photos/seed/arsipdaerah/200/200" alt="Bidang Pengelolaan Arsip Daerah Provinsi" class="org-avatar" loading="lazy">
+                                     <div class="org-role">Bidang Pengelolaan Arsip Daerah Provinsi</div>
+                                     <div class="org-name">Kepala: Desi Sinorita, S.Kom.</div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="org-card">
+                                     <img src="https://picsum.photos/seed/perlindungan/200/200" alt="Bidang Perlindungan dan Penyelamatan Arsip" class="org-avatar" loading="lazy">
+                                     <div class="org-role">Bidang Perlindungan dan Penyelamatan Arsip</div>
+                                     <div class="org-name">Kepala: Yanti Trisiana, S.H., M.M.</div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="org-card">
+                                     <img src="https://picsum.photos/seed/pelestarian/200/200" alt="Bidang Pelestarian Koleksi Nasional dan Pelestarian Naskah Kuno" class="org-avatar" loading="lazy">
+                                     <div class="org-role">Bidang Pelestarian Koleksi Nasional dan Pelestarian Naskah Kuno</div>
+                                     <div class="org-name">Kepala: Dr. Mirdayati, S.H., M.Si.</div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <div class="org-card">
+                                     <img src="https://picsum.photos/seed/pembinaan/200/200" alt="Bidang Pembinaan dan Pengembangan Perpustakaan" class="org-avatar" loading="lazy">
+                                     <div class="org-role">Bidang Pembinaan dan Pengembangan Perpustakaan</div>
+                                     <div class="org-name">Kepala: Rinaldy, S.T., M.Si.</div>
+                                 </div>
+                             </li>
+                         </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Jenderal Sudirman No. 3, Pangkalpinang</p>
+                    <p><i class="fas fa-phone"></i> (0717) 43534</p>
+                    <p><i class="fas fa-envelope"></i> info@arsip.babelprov.go.id</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#arsip">Layanan Arsip</a></li>
+                        <li><a href="#perpustakaan">Layanan Perpustakaan</a></li>
+                        <li><a href="#digital">Arsip Digital</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Media Sosial</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/6282179804458" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://dkpus.babelprov.go.id/" target="_blank" rel="noopener"><i class="fas fa-globe"></i></a>                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dinas Kearsipan dan Perpustakaan Provinsi Kepulauan Bangka Belitung. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp CTA -->
+    <div class="floating-wa">
+        <a href="https://wa.me/6282179804458" target="_blank" rel="noopener" aria-label="Hubungi kami via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Floating Izin Tidak Hadir Button -->
+    <div class="floating-izin">
+        <a href="https://subbagumumdkpusbabel.github.io/laporbos/" target="_blank" rel="noopener" aria-label="Form Ketidakhadiran di Kantor">
+            <i class="fas fa-file-alt"></i>
+            <span class="floating-text">Isi Form Ketidakhadiran di Kantor</span>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Active navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
