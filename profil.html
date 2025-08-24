@@ -211,46 +211,6 @@
             padding-left: 0;
             justify-content: center;
             flex-wrap: wrap;
-            position: relative;
-        }
-        
-        /* Connector line from Kepala to groups */
-        .org-chart ul ul::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 20px;
-            background: linear-gradient(45deg, #2c5530, #4a6741);
-            opacity: 0.8;
-        }
-        
-        /* Horizontal connector line */
-        .org-chart ul ul::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 80px);
-            height: 2px;
-            background: linear-gradient(45deg, #2c5530, #4a6741);
-            opacity: 0.6;
-        }
-        
-        /* Vertical connector lines to each group */
-        .org-chart ul ul > li::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 20px;
-            background: linear-gradient(45deg, #2c5530, #4a6741);
-            opacity: 0.8;
         }
         
         /* Level 3 - Vertical layout for individual positions */
@@ -278,7 +238,6 @@
             flex: 0 1 auto;
             width: auto;
             min-width: 300px;
-            position: relative;
         }
         
         .org-chart li::before, 
@@ -321,13 +280,6 @@
             .org-chart ul ul > li {
                 width: 100%;
                 min-width: 100%;
-            }
-            
-            /* Hide connector lines on mobile */
-            .org-chart ul ul::before,
-            .org-chart ul ul::after,
-            .org-chart ul ul > li::before {
-                display: none;
             }
             
             .org-card {
