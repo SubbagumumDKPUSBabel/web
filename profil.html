@@ -185,6 +185,59 @@
             box-shadow: 0 10px 25px rgba(44, 85, 48, 0.3);
         }
         
+        /* Custom Organization Chart Styles for Vertical Layout */
+        .org-chart {
+            overflow-x: visible;
+            padding: 20px 15px;
+        }
+        
+        .org-chart ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding-left: 0;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+        
+        .org-chart ul ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding-left: 0;
+        }
+        
+        .org-chart li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            float: none;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .org-chart li::before, 
+        .org-chart li::after, 
+        .org-chart ul ul::before {
+            display: none;
+        }
+        
+        .org-card {
+            min-width: 200px;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+        
+        .sub-org-card {
+            min-width: 180px;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+        
         @media (max-width: 768px) {
             .profile-hero h1 {
                 font-size: 2.2rem;
@@ -196,6 +249,16 @@
             
             .vision-mission {
                 grid-template-columns: 1fr;
+            }
+            
+            .org-card {
+                min-width: 100%;
+                max-width: 100%;
+            }
+            
+            .sub-org-card {
+                min-width: 100%;
+                max-width: 100%;
             }
         }
     </style>
