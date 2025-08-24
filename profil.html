@@ -185,19 +185,295 @@
             box-shadow: 0 10px 25px rgba(44, 85, 48, 0.3);
         }
         
-        @media (max-width: 768px) {
-            .profile-hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .profile-section h2 {
-                font-size: 2rem;
-            }
-            
-            .vision-mission {
-                grid-template-columns: 1fr;
-            }
-        }
+                 /* Staff List Styling */
+         .staff-list {
+             display: flex;
+             flex-direction: column;
+             gap: 1rem;
+             margin-top: 2rem;
+             padding-left: 0;
+             list-style: none;
+             width: 100%;
+         }
+         
+         .staff-list li {
+             position: relative;
+             padding: 0;
+             margin: 0;
+         }
+         
+         .staff-list li::before,
+         .staff-list li::after {
+             display: none;
+         }
+         
+         .staff-card {
+             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+             border: 2px solid #dee2e6;
+             border-radius: 15px;
+             padding: 1.5rem;
+             text-align: center;
+             transition: all 0.3s ease;
+             max-width: 300px;
+             margin: 0 auto;
+             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+             width: 100%;
+         }
+         
+         .staff-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+             border-color: #2c5530;
+         }
+         
+         .staff-card .org-avatar {
+             width: 80px;
+             height: 80px;
+             border-radius: 50%;
+             margin-bottom: 1rem;
+             border: 3px solid #2c5530;
+         }
+         
+         .staff-card .org-role {
+             font-size: 0.9rem;
+             font-weight: 600;
+             color: #2c5530;
+             margin-bottom: 0.5rem;
+             line-height: 1.3;
+             word-wrap: break-word;
+             hyphens: auto;
+         }
+         
+         .staff-card .org-name {
+             font-size: 1rem;
+             font-weight: 500;
+             color: #495057;
+             word-wrap: break-word;
+         }
+         
+         /* Responsive adjustments for staff list */
+         @media (max-width: 1200px) {
+             .staff-list {
+                 display: grid;
+                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                 gap: 1.5rem;
+                 justify-items: center;
+             }
+         }
+         
+         @media (max-width: 768px) {
+             .profile-hero h1 {
+                 font-size: 2.2rem;
+             }
+             
+             .profile-section h2 {
+                 font-size: 2rem;
+             }
+             
+             .vision-mission {
+                 grid-template-columns: 1fr;
+             }
+             
+             .staff-list {
+                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                 gap: 1rem;
+                 justify-items: center;
+             }
+             
+             .staff-card {
+                 padding: 1rem;
+             }
+             
+             .staff-card .org-avatar {
+                 width: 60px;
+                 height: 60px;
+             }
+             
+             .staff-card .org-role {
+                 font-size: 0.8rem;
+             }
+             
+             .staff-card .org-name {
+                 font-size: 0.9rem;
+             }
+         }
+         
+         @media (max-width: 480px) {
+             .staff-list {
+                 grid-template-columns: 1fr;
+                 justify-items: center;
+             }
+             
+             .org-chart > ul > li {
+                 min-width: 260px;
+                 max-width: 320px;
+             }
+             
+             .org-chart > ul > li > ul > li {
+                 min-width: 240px;
+                 max-width: 300px;
+             }
+             
+             .staff-card {
+                 max-width: 280px;
+                 padding: 1rem;
+             }
+             
+             .staff-card .org-role {
+                 font-size: 0.75rem;
+             }
+             
+             .staff-card .org-name {
+                 font-size: 0.85rem;
+             }
+             
+             .staff-card .org-avatar {
+                 width: 50px;
+                 height: 50px;
+             }
+         }
+         
+         /* Additional styling for better organization chart display */
+         .org-chart .sub-org-card {
+             background: linear-gradient(135deg, #2c5530, #4a6741);
+             color: white;
+             border: 2px solid #2c5530;
+         }
+         
+         .org-chart .sub-org-card .org-role,
+         .org-chart .sub-org-card .org-name {
+             color: white;
+         }
+         
+         .org-chart .sub-org-card .org-avatar {
+             border: 3px solid #ffd700;
+         }
+         
+         /* Organization Chart Adjustments */
+         .org-chart {
+             max-width: 100%;
+             overflow-x: auto;
+             padding: 2rem 0;
+             margin: 0 auto;
+         }
+         
+         .org-chart ul {
+             display: flex;
+             justify-content: center;
+             align-items: flex-start;
+             flex-wrap: wrap;
+             gap: 2rem;
+             padding: 0;
+             margin: 0;
+             list-style: none;
+         }
+         
+         .org-chart > ul > li {
+             flex: 1;
+             min-width: 280px;
+             max-width: 350px;
+         }
+         
+         .org-chart > ul > li > ul > li {
+             flex: 1;
+             min-width: 250px;
+             max-width: 320px;
+         }
+         
+         .org-card {
+             margin-bottom: 2rem;
+         }
+         
+         /* Ensure all heads of divisions are aligned */
+         .org-chart > ul > li > ul {
+             display: flex;
+             justify-content: center;
+             align-items: flex-start;
+             flex-wrap: wrap;
+             gap: 1.5rem;
+             list-style: none;
+         }
+         
+         /* Responsive adjustments for organization chart */
+         @media (max-width: 1400px) {
+             .org-chart > ul > li {
+                 min-width: 250px;
+                 max-width: 300px;
+             }
+             
+             .org-chart > ul > li > ul > li {
+                 min-width: 220px;
+                 max-width: 280px;
+             }
+         }
+         
+         @media (max-width: 1024px) {
+             .org-chart > ul {
+                 flex-direction: column;
+                 align-items: center;
+             }
+             
+             .org-chart > ul > li {
+                 min-width: 300px;
+                 max-width: 400px;
+             }
+             
+             .org-chart > ul > li > ul {
+                 flex-direction: column;
+                 align-items: center;
+             }
+             
+             .org-chart > ul > li > ul > li {
+                 min-width: 280px;
+                 max-width: 350px;
+             }
+         }
+         
+         @media (max-width: 768px) {
+             .org-chart {
+                 padding: 1rem 0;
+             }
+             
+             .org-chart > ul > li {
+                 min-width: 280px;
+                 max-width: 350px;
+             }
+             
+             .org-chart > ul > li > ul > li {
+                 min-width: 260px;
+                 max-width: 320px;
+             }
+             
+             .staff-list {
+                 grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                 gap: 1rem;
+                 justify-items: center;
+             }
+         }
+         
+         @media (max-width: 480px) {
+             .org-chart > ul > li {
+                 min-width: 260px;
+                 max-width: 320px;
+             }
+             
+             .org-chart > ul > li > ul > li {
+                 min-width: 240px;
+                 max-width: 300px;
+             }
+             
+             .staff-card {
+                 max-width: 280px;
+             }
+             
+             .staff-card .org-role {
+                 font-size: 0.75rem;
+             }
+             
+             .staff-card .org-name {
+                 font-size: 0.85rem;
+             }
+         }
     </style>
 </head>
 <body>
@@ -355,86 +631,86 @@
                                              <div class="org-role">Kepala Subbagian Umum</div>
                                              <div class="org-name">Ian Gaurav Bhaskara, S.I.Pem.</div>
                                          </div>
-                                         <ul>
+                                         <ul class="staff-list">
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/placeholder/200/200" alt="Belum Ada" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Analis Sumber Daya Manusia Aparatur Ahli Pertama</div>
                                                      <div class="org-name">Belum Ada</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/placeholder/200/200" alt="Belum Ada" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Pranata Hubungan Masyarakat Ahli Pertama</div>
                                                      <div class="org-name">Belum Ada</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/yustin/200/200" alt="Yustin" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Arsiparis Terampil</div>
                                                      <div class="org-name">Yustin</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/placeholder/200/200" alt="Belum Ada" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Pranata Komputer Mahir</div>
                                                      <div class="org-name">Belum Ada</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/mirza/200/200" alt="Mirza Riandiny" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Pranata Komputer Terampil</div>
                                                      <div class="org-name">Mirza Riandiny</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/hari/200/200" alt="Hari Budiman" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Penelaah Teknis Kebijakan</div>
                                                      <div class="org-name">Hari Budiman</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/ali/200/200" alt="Ali Asnawi" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Penelaah Teknis Kebijakan</div>
                                                      <div class="org-name">Ali Asnawi</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/riffa/200/200" alt="Riffa" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Pengolah Data dan Informasi</div>
                                                      <div class="org-name">Riffa</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/iwan/200/200" alt="Iwan Setiawan" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Pengadministrasi Perkantoran</div>
                                                      <div class="org-name">Iwan Setiawan</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/imam/200/200" alt="Imam Mahdi" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Pengadministrasi Perkantoran</div>
                                                      <div class="org-name">Imam Mahdi</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/placeholder/200/200" alt="Belum Ada" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Operator Layanan Operasional</div>
                                                      <div class="org-name">Belum Ada</div>
                                                  </div>
                                              </li>
                                              <li>
-                                                 <div class="org-card sub-org-card">
+                                                 <div class="org-card staff-card">
                                                      <img src="https://picsum.photos/seed/sahroni/200/200" alt="Sahroni Siregar" class="org-avatar" loading="lazy">
                                                      <div class="org-role">Pengelola Umum Operasional</div>
                                                      <div class="org-name">Sahroni Siregar</div>
