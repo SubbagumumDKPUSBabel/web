@@ -441,28 +441,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (raw) {
                 return JSON.parse(raw);
             } else {
-                // Return sample data if no data exists
+                // Return sample archive data if no data exists
                 return [
                     {
                         kind: 'cloud-file',
-                        name: 'Laporan Keuangan 2024',
+                        name: 'Arsip Surat Menyurat 2024',
                         url: 'https://drive.google.com/file/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/view',
-                        fileType: 'spreadsheet',
-                        ts: Date.now() - 86400000
-                    },
-                    {
-                        kind: 'cloud-file',
-                        name: 'Proposal Pengembangan Perpustakaan',
-                        url: 'https://1drv.ms/w/s!Aq8vQwXqXqXqXqXqXqXqXqXqXqXqXq',
                         fileType: 'document',
-                        ts: Date.now() - 172800000
-                    },
-                    {
-                        kind: 'cloud-file',
-                        name: 'Presentasi Rapat Koordinasi',
-                        url: 'https://docs.google.com/presentation/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit',
-                        fileType: 'presentation',
-                        ts: Date.now() - 259200000
+                        ts: Date.now() - 86400000
                     }
                 ];
             }
