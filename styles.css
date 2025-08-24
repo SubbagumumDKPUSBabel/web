@@ -1656,6 +1656,14 @@ body.dark .data-item .meta .file-type {
     line-height: 1.1;
 }
 
+/* Special styling for Kepala Subbagian Umum */
+.kepala-subbag-role {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #1a3d1f !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.15) !important;
+}
+
 .org-name {
     color: #555;
     font-weight: 500;
