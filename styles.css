@@ -219,6 +219,22 @@ body {
     opacity: 1;
 }
 
+/* Nested dropdown (submenu) */
+.dropdown .dropdown-menu .dropdown {
+    position: relative;
+}
+
+.dropdown .dropdown-menu .dropdown > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: 0.5rem;
+}
+
+/* Ensure nested menu overlays correctly */
+.dropdown .dropdown-menu, .dropdown .dropdown-menu .dropdown .dropdown-menu {
+    z-index: 1002;
+}
+
 /* Dark theme support for dropdown */
 body.dark .dropdown-menu {
     background: #1f2937;
