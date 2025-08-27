@@ -1,9 +1,7 @@
 LOGO PLACEHOLDER
 
-Untuk menggunakan website ini, Anda perlu menambahkan logo resmi Pemerintah Provinsi Kepulauan Bangka Belitung.
-
 Langkah-langkah:
-1. Download logo resmi dari sumber resmi pemerintah
+1. Download logo 
 2. Rename file menjadi "logo-babel.png"
 3. Letakkan file di folder yang sama dengan index.html
 4. Pastikan ukuran logo sekitar 80x80 pixel untuk hasil terbaik
@@ -14,4 +12,5 @@ Format yang didukung:
 - SVG (untuk kualitas terbaik)
 
 Catatan: Logo harus memiliki background transparan atau putih untuk hasil yang optimal.
+
 
